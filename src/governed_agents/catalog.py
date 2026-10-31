@@ -30,7 +30,7 @@ def _parts_top_headline(result: ToolResult, lang: str) -> str:
     best = result.rows[0]
     if lang == "pt":
         return (
-            f"{result.total_rows} itens venderam em {result.args['period']}. "
+            f"{result.total_rows} itens tiveram venda em {result.args['period']}. "
             f"O líder é {best['sku']} ({best['description']}), "
             f"com {money(best['revenue'], lang)}."
         )
@@ -89,11 +89,11 @@ def _machine_category_headline(result: ToolResult, lang: str) -> str:
     if lang == "pt":
         return (
             f"Máquinas faturaram {money(total, lang)} em {result.args['period']}. "
-            f"{best['category']} lidera, com {best['units']} unidades."
+            f"A categoria {best['category']} lidera, com {best['units']} unidades."
         )
     return (
         f"Machine revenue was {money(total, lang)} in {result.args['period']}. "
-        f"{best['category']} leads, with {best['units']} units."
+        f"The {best['category']} category leads, with {best['units']} units."
     )
 
 
@@ -102,7 +102,7 @@ def _margin_headline(result: ToolResult, lang: str) -> str:
     if lang == "pt":
         return (
             f"{best['seller']} tem a maior margem de {result.args['period']}: "
-            f"{best['margin_pct']:.1f}% sobre {money(best['revenue'], lang)}."
+            f"{best['margin_pct']:.1f}%".replace(".", ",") + f" sobre {money(best['revenue'], lang)}."
         )
     return (
         f"{best['seller']} has the highest margin in {result.args['period']}: "
