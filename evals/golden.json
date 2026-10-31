@@ -1,0 +1,108 @@
+[
+  {
+    "id": "parts-revenue-fy",
+    "question": "Quanto vendemos de peças por filial no FY2026?",
+    "agent": "parts",
+    "tool": "parts_revenue_by_branch",
+    "args": { "period": "FY2026" }
+  },
+  {
+    "id": "parts-revenue-month",
+    "question": "Qual o faturamento de peças em setembro de 2026?",
+    "agent": "parts",
+    "tool": "parts_revenue_by_branch",
+    "args": { "period": "2026-09" }
+  },
+  {
+    "id": "parts-top-items",
+    "question": "Quais os itens mais vendidos na filial Sul no FY2025?",
+    "agent": "parts",
+    "tool": "parts_top_items",
+    "args": { "period": "FY2025", "branch": "Sul" }
+  },
+  {
+    "id": "parts-stock-group",
+    "question": "Qual o valor em estoque de filtros na filial Norte?",
+    "agent": "parts",
+    "tool": "parts_stock_value",
+    "args": { "part_group": "Filtros", "branch": "Norte" }
+  },
+  {
+    "id": "parts-stock-all",
+    "question": "Como está o estoque de peças?",
+    "agent": "parts",
+    "tool": "parts_stock_value",
+    "args": { "part_group": null, "branch": null }
+  },
+  {
+    "id": "service-aged-default",
+    "question": "Quais OSs estão abertas há muito tempo?",
+    "agent": "service",
+    "tool": "service_aged_orders",
+    "args": { "min_age_days": 30 }
+  },
+  {
+    "id": "service-aged-days",
+    "question": "Quais ordens de serviço estão abertas há 90 dias na filial Leste?",
+    "agent": "service",
+    "tool": "service_aged_orders",
+    "args": { "min_age_days": 90, "branch": "Leste" }
+  },
+  {
+    "id": "service-ranking",
+    "question": "Qual o ranking de técnicos no FY2026?",
+    "agent": "service",
+    "tool": "service_technician_ranking",
+    "args": { "period": "FY2026" }
+  },
+  {
+    "id": "service-ranking-branch",
+    "question": "Qual técnico faturou mais na filial Oeste em agosto de 2026?",
+    "agent": "service",
+    "tool": "service_technician_ranking",
+    "args": { "period": "2026-08", "branch": "Oeste" }
+  },
+  {
+    "id": "machines-category",
+    "question": "Quanto vendemos de máquinas por categoria no FY2026?",
+    "agent": "machines",
+    "tool": "machine_sales_by_category",
+    "args": { "period": "FY2026" }
+  },
+  {
+    "id": "machines-margin",
+    "question": "Qual a margem de cada vendedor na filial Centro em 2026?",
+    "agent": "machines",
+    "tool": "machine_margin_by_seller",
+    "args": { "period": "2026", "branch": "Centro" }
+  },
+  {
+    "id": "finance-director",
+    "question": "Quanto temos de títulos vencidos a receber?",
+    "role": "director",
+    "agent": "finance",
+    "tool": "receivables_aging"
+  },
+  {
+    "id": "finance-denied-seller",
+    "question": "Quanto temos de títulos vencidos a receber?",
+    "role": "seller",
+    "agent": "finance",
+    "denied": true
+  },
+  {
+    "id": "finance-denied-manager",
+    "question": "Qual a inadimplência da filial Sul?",
+    "role": "manager",
+    "agent": "finance",
+    "denied": true
+  },
+  {
+    "id": "out-of-scope-weather",
+    "question": "Vai chover amanhã?"
+  },
+  {
+    "id": "out-of-scope-recipe",
+    "question": "Me passa uma receita de bolo de cenoura"
+  }
+]

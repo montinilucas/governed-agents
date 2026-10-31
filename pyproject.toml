@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "governed-agents"
+version = "0.1.0"
+description = "Multi-agent assistant where the model picks tools and never writes SQL."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Lucas Montini" }]
+dependencies = []
+
+[project.optional-dependencies]
+claude = ["anthropic>=2.3"]
+dev = ["pytest>=8", "anthropic>=2.3"]
+
+[project.scripts]
+governed-agents = "governed_agents.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/governed_agents"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
